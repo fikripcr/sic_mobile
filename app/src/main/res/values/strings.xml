@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Sonic Apps</string>
+    <string name="judul">Halaman Kirim</string>
+    <string name="judulBaru">Kode berhasil dikirim!</string>
+    <string name="anakJudul">Silahkan periksa nomor Anda</string>
 </resources>
