@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.sonicapps.databinding.ActivityMainBinding
 import com.example.sonicapps.pertemuan_3.ThirdResultActivity
 import com.example.sonicapps.pertemuan_4.FourthActivity
+import com.example.sonicapps.pertemuan_5.FifthActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
@@ -34,6 +35,11 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
 
+        }
+
+        binding.btnToFifth.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
         }
     }
 }
