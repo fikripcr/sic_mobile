@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SonicApps">
         <activity
-            android:name=".AuthActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".pertemuan_5.WebViewActivity"
@@ -33,7 +33,7 @@
             android:name=".pertemuan_2.SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

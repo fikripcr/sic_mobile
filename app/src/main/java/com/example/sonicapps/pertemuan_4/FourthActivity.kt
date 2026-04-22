@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -48,6 +49,21 @@ class FourthActivity : AppCompatActivity() {
         }
         binding.btnShowAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin melanjutkan?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog","Anda memilih Ya!")
+                }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog","Anda memilih Tidak!")
+                }
+                .show()
+        }
+
+        binding.btnShowAlertDialog2.setOnClickListener {
+            AlertDialog.Builder(this)
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin melanjutkan?")
                 .setPositiveButton("Ya") { dialog, _ ->
