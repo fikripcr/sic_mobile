@@ -3,4 +3,6 @@
     <string name="judul">Halaman Kirim</string>
     <string name="judulBaru">Kode berhasil dikirim!</string>
     <string name="anakJudul">Silahkan periksa nomor Anda</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

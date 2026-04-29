@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SonicApps">
         <activity
+            android:name=".pertemuan_7.SeventhActivity"
+            android:exported="false" />
+        <activity
             android:name=".AuthActivity"
             android:exported="false" />
         <activity

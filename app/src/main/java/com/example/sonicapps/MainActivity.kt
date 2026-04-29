@@ -13,9 +13,10 @@ import com.example.sonicapps.pertemuan_4.FourthActivity
 import com.example.sonicapps.pertemuan_5.FifthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.core.content.edit
+import com.example.sonicapps.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +52,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 .show()
         }
+
+        binding.btnToThird.setOnClickListener {
+            val intent = Intent(this, ThirdResultActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             /*tambahkan bagian berikut*/
@@ -62,6 +69,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnToFifth.setOnClickListener {
             val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
             startActivity(intent)
         }
     }
