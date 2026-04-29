@@ -1,4 +1,4 @@
-package com.example.sonicapps.pertemuan_7
+package com.example.sonicapps.Home.pertemuan_7
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

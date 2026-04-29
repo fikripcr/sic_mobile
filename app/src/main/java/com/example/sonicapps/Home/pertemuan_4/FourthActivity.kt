@@ -1,6 +1,5 @@
-package com.example.sonicapps.pertemuan_4
+package com.example.sonicapps.Home.pertemuan_4
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -8,10 +7,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.sonicapps.MainActivity
 import com.example.sonicapps.R
 import com.example.sonicapps.databinding.ActivityFourthBinding
-import com.example.sonicapps.pertemuan_2.SecondActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 

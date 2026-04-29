@@ -1,4 +1,4 @@
-package com.example.sonicapps.pertemuan_2
+package com.example.sonicapps.Home.pertemuan_2
 
 fun main() {
     println("Hai rekan-rekan...")

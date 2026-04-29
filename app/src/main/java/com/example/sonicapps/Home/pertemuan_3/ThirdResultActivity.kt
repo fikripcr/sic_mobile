@@ -1,4 +1,4 @@
-package com.example.sonicapps.pertemuan_3
+package com.example.sonicapps.Home.pertemuan_3
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
