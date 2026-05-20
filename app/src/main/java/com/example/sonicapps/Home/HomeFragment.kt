@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.sonicapps.AuthActivity
+import com.example.sonicapps.Home.pertemuan_10.TenthActivity
 import com.example.sonicapps.Home.pertemuan_3.ThirdResultActivity
 import com.example.sonicapps.Home.pertemuan_4.FourthActivity
 import com.example.sonicapps.Home.pertemuan_5.FifthActivity
@@ -39,6 +40,7 @@ class HomeFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
         }
+
         val sharedPref = requireContext().getSharedPreferences("session_user", MODE_PRIVATE)
 
         binding.btnLogout.setOnClickListener {
@@ -88,6 +90,11 @@ class HomeFragment : Fragment() {
 
         binding.btnToNinth.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToTenth.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
     }
