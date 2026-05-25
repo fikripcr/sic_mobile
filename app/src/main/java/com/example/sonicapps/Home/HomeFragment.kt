@@ -3,6 +3,7 @@ package com.example.sonicapps.Home
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sonicapps.AuthActivity
@@ -23,8 +25,11 @@ import com.example.sonicapps.Home.pertemuan_5.FifthActivity
 import com.example.sonicapps.Home.pertemuan_7.SeventhActivity
 import com.example.sonicapps.Home.pertemuan_9.NinthActivity
 import com.example.sonicapps.R
+import com.example.sonicapps.data.api.CatFactApiClient
 import com.example.sonicapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
+import kotlin.math.log
 
 
 class HomeFragment : Fragment() {
@@ -160,19 +165,24 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
-
-        val adapter = ProductAdapter(productList) { selectedItem ->
-            Toast.makeText(requireContext(), "Anda memilih ${selectedItem.name}", Toast.LENGTH_SHORT).show()
+        binding.btnRefresh.setOnClickListener {
+            loadCatFact()
         }
+        loadCatFact()
 
-        binding.rvProducts.apply {
-            /** Mode Grid **/
-//            layoutManager = GridLayoutManager(requireContext(), 1)
 
-            /** Jika ingin model Linear **/
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-            this.adapter = adapter
+    }
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+
+                Log.e("Error", e.toString())
+            }
         }
     }
 }
