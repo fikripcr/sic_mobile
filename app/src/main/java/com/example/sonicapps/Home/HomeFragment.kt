@@ -20,6 +20,7 @@ import com.example.sonicapps.Home.pertemuan_10.ProductAdapter
 import com.example.sonicapps.Home.pertemuan_10.ProductModel
 import com.example.sonicapps.Home.pertemuan_10.TenthActivity
 import com.example.sonicapps.Home.pertemuan_13.ThirteenthActivity
+import com.example.sonicapps.Home.pertemuan_3.ThirdActivity
 import com.example.sonicapps.Home.pertemuan_3.ThirdResultActivity
 import com.example.sonicapps.Home.pertemuan_4.FourthActivity
 import com.example.sonicapps.Home.pertemuan_5.FifthActivity
@@ -134,7 +135,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnToThird.setOnClickListener {
-            val intent = Intent(requireContext(), ThirdResultActivity::class.java)
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
             startActivity(intent)
         }
 

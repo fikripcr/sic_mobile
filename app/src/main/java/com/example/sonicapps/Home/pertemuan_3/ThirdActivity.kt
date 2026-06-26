@@ -1,18 +1,31 @@
 package com.example.sonicapps.Home.pertemuan_3
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.sonicapps.R
 import com.example.sonicapps.databinding.ActivityThirdBinding
+import com.example.sonicapps.utils.NotificationHelper
+import com.example.sonicapps.utils.PermissionHelper
 
 class ThirdActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityThirdBinding
+
+    private val notificationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                Toast.makeText(this, "Notifikasi diizinkan", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Notifikasi ditolak", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +40,31 @@ class ThirdActivity : AppCompatActivity() {
             insets
         }
 
+        if (PermissionHelper.isNotificationPermissionRequired()) {
+            val permission = Manifest.permission.POST_NOTIFICATIONS
+            if (!PermissionHelper.hasPermission(this, permission)) {
+                PermissionHelper.requestPermission(
+                    notificationPermissionLauncher,
+                    permission
+                )
+            }
+        }
+
         binding.btnKirim.setOnClickListener {
             //Mengambil value dari inputNama dan menampilkan di Logcat
-            val nama = binding.inputNoTujuan.text
-            Toast.makeText(this, "Pesan berhasil dikirim ke $nama", Toast.LENGTH_SHORT).show()
+            val noTujuan = binding.inputNoTujuan.text
+            Toast.makeText(this, "Pesan berhasil dikirim ke $noTujuan", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, ThirdResultActivity::class.java)
-            startActivity(intent)
+
+            //startActivity(intent)
+
+            NotificationHelper.showNotification(
+                this, //Jika panggil di fragment maka requireContext()
+                "Pesanan Anda",
+                "Halo $noTujuan, Pesanan Anda Sedang Diproses",
+                intent
+            )
         }
     }
 }
